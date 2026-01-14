@@ -1,0 +1,10 @@
+{% set sense1 = states('binary_sensor."yourhandle"_tur') %}
+{% set sense2 = states('binary_sensor."yourhandle"_tur_2') %}
+
+{% if sense1 == 'on' and sense2 == 'on' %}
+  Opened
+{% elif sense1 == 'on' or sense2 == 'on' %}
+  Tilted
+{% else %}
+  Closed
+{% endif %}

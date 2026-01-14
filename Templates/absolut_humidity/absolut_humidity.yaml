@@ -1,0 +1,8 @@
+{% set T  = states('sensor.weather_temperature')   | float(0) %}
+{% set RH = states('sensor.weather_humidity') | float(0) %}
+
+{{ (
+  1000 * e**(19.016 - (4064.95 / (T + 236.25)))
+  * 100 / (461.66 * (T + 273.15))
+  * (RH / 100)
+) | round(2) }}
